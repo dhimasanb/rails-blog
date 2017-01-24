@@ -9,6 +9,28 @@
   </head>
 
   <body>
+    <div id="sidebar">
+      <div id="logo">
+        <%= link_to root_path do %>
+          <%= image_tag "logo.svg" %>
+        <% end %>
+      </div>
+
+      <ul>
+        <li class="category">Website</li>
+        <li><%= link_to "Blog", root_path %></li>
+        <li>About</li>
+      </ul>
+
+      <ul>
+        <li class="category">Social</li>
+        <li><a href="https://facebook.com/dhimasanb">Facebook</a></li>
+        <li><a href="https://github.com/dhimasanb">Github</a></li>
+        <li><a href="mailto:dhimasakbarnoorbaihaque@gmail.com">Email</a></li>
+      </ul>
+    </div>
+
     <%= yield %>
+
   </body>
 </html>
