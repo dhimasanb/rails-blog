@@ -28,6 +28,10 @@
         <li><a href="https://github.com/dhimasanb">Github</a></li>
         <li><a href="mailto:dhimasakbarnoorbaihaque@gmail.com">Email</a></li>
       </ul>
+
+      <% if !user_signed_in? %>
+        <p class="sign_in"><%= link_to "Admin Login", new_user_session_path %></p>
+      <% end %>
     </div>
 
     <div id="main_content">
@@ -39,11 +43,14 @@
         <% else %>
           <%= link_to "Back to All Posts", root_path %>
         <% end %>
-            
+
+        <% if user_signed_in? %>
         <div class="buttons">
           <button class="button"><%= link_to "New Post", new_post_path %></button>
-          <button class="button">Log Out</button>
+          <button class="button"><%= link_to 'Log Out', destroy_user_session_path, :method => :delete %></button>
+
         </div>
+        <% end %>
       </div>
 
       <% flash.each do |name, msg| %>
